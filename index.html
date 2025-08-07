@@ -1,1 +1,126 @@
-<h1>Hello from Github</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mihir Portfolio</title>
+  <meta name="description" content="Personal profile of Mihir" />
+  <link rel="icon" href="./assests/img/icons8-trophy-16.png" type="image/x-icon" />
+  
+  <!-- Professional CSS linking -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to my world!</h1>
+    <p>This is Mihir, a tech enthusiast</p>
+    <div id="dynamic-greeting"></div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>Hello! I am Mihir, and here's a little info about me.</p>
+    <img src="./assests/img/Screenshot 2025-05-31 105930.png" alt="Mihir Pic" width="300" class="profile-pic">
+  </section>
+
+  <section>
+    <h2>My Skills</h2>
+    <p>Here are some of my core technical and personal skills:</p>
+    <table>
+      <tr>
+        <th>Technical Skills</th>
+        <th>Personal Skills</th>
+      </tr>
+      <tr>
+        <td>
+          <ul>
+            <li>Python Programming</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Version Control (Git/GitHub)</li>
+            <li>Basic SQL</li>
+            <li>Problem Solving</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Critical Thinking</li>
+            <li>Adaptability</li>
+            <li>Time Management</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Portfolio</h2>
+    <p>Here are some of the projects I've worked on:</p>
+    <ul>
+      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Personal Website</strong></a> – A responsive website built using HTML, CSS, and JavaScript.</li>
+      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Contact Book CLI</strong></a> – A Python command-line app to store and manage contacts.</li>
+      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Air Quality Data Fetcher</strong></a> – Python script using OpenAQ API for environmental data analysis.</li>
+      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Smog Predictor (in progress)</strong></a> – Web app for predicting smog events using ML.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact Information</h2>
+    <p>Feel free to reach out to me:</p>
+    <ul>
+      <li>Email: <a href="mailto:mihir@example.com">mihir@example.com</a></li>
+      <li>Phone: +91-XXXXXXXXXX</li>
+      <li>GitHub: <a href="https://github.com/mihir0246" target="_blank">github.com/mihir0246</a></li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact Me</h2>
+    <p>If you'd like to get in touch, please fill out the form below:</p>
+    <form action="#" method="post">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    <hr>
+    <p>
+      &copy; 2025 Mihir. All rights reserved. |
+      <a href="mailto:mihir@example.com">Contact</a> |
+      <a href="https://github.com/mihir0246" target="_blank">GitHub</a>
+    </p>
+  </footer>
+
+  <script>
+    // Dynamic greeting based on time
+    const greetingDiv = document.getElementById('dynamic-greeting');
+    const now = new Date();
+    const hour = now.getHours();
+
+    let greeting;
+    if (hour < 12) {
+      greeting = 'Good Morning, Mihir!';
+    } else if (hour < 18) {
+      greeting = 'Good Afternoon, Mihir!';
+    } else {
+      greeting = 'Good Evening, Mihir!';
+    }
+
+    greetingDiv.textContent = greeting;
+  </script>
+</body>
+</html>
