@@ -9,12 +9,36 @@
   
   <!-- Professional CSS linking -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Additional CSS for dynamic features */
+    .fade-in {
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .portfolio-item {
+      transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Welcome to my world!</h1>
     <p>This is Mihir, a tech enthusiast</p>
     <div id="dynamic-greeting"></div>
+    <div id="current-date"></div>
   </header>
 
   <section>
@@ -34,20 +58,20 @@
       <tr>
         <td>
           <ul>
-            <li>Python Programming</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Version Control (Git/GitHub)</li>
-            <li>Basic SQL</li>
-            <li>Problem Solving</li>
+            <li class="skill-item">Python Programming</li>
+            <li class="skill-item">HTML, CSS, JavaScript</li>
+            <li class="skill-item">Version Control (Git/GitHub)</li>
+            <li class="skill-item">Basic SQL</li>
+            <li class="skill-item">Problem Solving</li>
           </ul>
         </td>
         <td>
           <ul>
-            <li>Teamwork</li>
-            <li>Communication</li>
-            <li>Critical Thinking</li>
-            <li>Adaptability</li>
-            <li>Time Management</li>
+            <li class="skill-item">Teamwork</li>
+            <li class="skill-item">Communication</li>
+            <li class="skill-item">Critical Thinking</li>
+            <li class="skill-item">Adaptability</li>
+            <li class="skill-item">Time Management</li>
           </ul>
         </td>
       </tr>
@@ -58,10 +82,10 @@
     <h2>Portfolio</h2>
     <p>Here are some of the projects I've worked on:</p>
     <ul>
-      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Personal Website</strong></a> – A responsive website built using HTML, CSS, and JavaScript.</li>
-      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Contact Book CLI</strong></a> – A Python command-line app to store and manage contacts.</li>
-      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Air Quality Data Fetcher</strong></a> – Python script using OpenAQ API for environmental data analysis.</li>
-      <li><a href="https://github.com/mihir0246" target="_blank"><strong>Smog Predictor (in progress)</strong></a> – Web app for predicting smog events using ML.</li>
+      <li class="portfolio-item"><a href="https://github.com/mihir0246" target="_blank"><strong>Personal Website</strong></a> – A responsive website built using HTML, CSS, and JavaScript.</li>
+      <li class="portfolio-item"><a href="https://github.com/mihir0246" target="_blank"><strong>Contact Book CLI</strong></a> – A Python command-line app to store and manage contacts.</li>
+      <li class="portfolio-item"><a href="https://github.com/mihir0246" target="_blank"><strong>Air Quality Data Fetcher</strong></a> – Python script using OpenAQ API for environmental data analysis.</li>
+      <li class="portfolio-item"><a href="https://github.com/mihir0246" target="_blank"><strong>Smog Predictor (in progress)</strong></a> – Web app for predicting smog events using ML.</li>
     </ul>
   </section>
 
@@ -79,7 +103,7 @@
   <section>
     <h2>Contact Me</h2>
     <p>If you'd like to get in touch, please fill out the form below:</p>
-    <form action="#" method="post">
+    <form id="contact-form" action="#" method="post">
       <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -93,6 +117,7 @@
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
       <button type="submit">Submit</button>
+      <div id="form-feedback"></div>
     </form>
   </section>
 
@@ -121,6 +146,36 @@
     }
 
     greetingDiv.textContent = greeting;
+
+    // Display current date
+    const dateDiv = document.getElementById('current-date');
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    dateDiv.textContent = `Today is ${now.toLocaleDateString(undefined, options)}`;
+
+    // Skill highlighting on hover
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+      item.addEventListener('mouseover', () => {
+        item.style.color = '#ffdd57'; // Change color on hover
+        item.style.fontWeight = 'bold'; // Make it bold
+      });
+      item.addEventListener('mouseout', () => {
+        item.style.color = ''; // Reset color
+        item.style.fontWeight = ''; // Reset font weight
+      });
+    });
+
+    // Form submission feedback
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const feedbackDiv = document.getElementById('form-feedback');
+      feedbackDiv.textContent = 'Thank you for your message, Mihir!';
+      feedbackDiv.classList.add('fade-in');
+      this.reset();
+      setTimeout(() => {
+        feedbackDiv.classList.remove('fade-in');
+      }, 3000); // Remove class after 3 seconds
+    });
   </script>
 </body>
 </html>
